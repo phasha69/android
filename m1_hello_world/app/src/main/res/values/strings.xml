@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">m1_hello_world</string>
+    <string name="minus">"-"</string>
+    <string name="plus">"+"</string>
+    <string name="zero">"0"</string>
+    <string name="reset">"RESET"</string>
 </resources>

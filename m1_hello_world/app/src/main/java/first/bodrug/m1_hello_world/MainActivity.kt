@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         bindings.textInfo.text = START_MESSAGE
         bindings.textInfo.setTextColor(Color.GREEN)
-        bindings.buttonMinus.isEnabled= false
+        bindings.buttonMinus.isEnabled = false
         bindings.buttonMinus.setOnClickListener {
             if (count > ZERO) {
                 count--

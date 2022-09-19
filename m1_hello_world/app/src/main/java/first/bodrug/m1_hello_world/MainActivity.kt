@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         bindings.textInfo.text = START_MESSAGE
         bindings.textInfo.setTextColor(Color.GREEN)
+        bindings.buttonMinus.isEnabled= false
         bindings.buttonMinus.setOnClickListener {
             if (count > ZERO) {
                 count--
@@ -26,12 +27,14 @@ class MainActivity : AppCompatActivity() {
                 if (count == ZERO) {
                     bindings.textInfo.text = START_MESSAGE
                     bindings.textInfo.setTextColor(Color.GREEN)
+                    bindings.buttonMinus.isEnabled = false
                 }
             }
         }
 
         bindings.buttonPlus.setOnClickListener {
             count++
+            bindings.buttonMinus.isEnabled = true
             bindings.counter.text = "$count"
             bindings.textInfo.text = free
             bindings.textInfo.setTextColor(Color.BLUE)
@@ -44,6 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         bindings.reset.setOnClickListener {
             count = ZERO
+            bindings.buttonMinus.isEnabled = false
             bindings.textInfo.setTextColor(Color.GREEN)
             bindings.counter.text = "$count"
             bindings.textInfo.text = START_MESSAGE

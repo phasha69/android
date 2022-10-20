@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">m2_layout</string>
+    <string name="text_up">Верхняя строчка</string>
+    <string name="text_dawn">Нижняя строчка</string>
+</resources>

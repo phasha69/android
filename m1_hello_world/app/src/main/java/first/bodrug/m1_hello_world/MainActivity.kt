@@ -1,13 +1,16 @@
 package first.bodrug.m1_hello_world
 
 import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.RequiresApi
 import first.bodrug.m1_hello_world.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bindings = ActivityMainBinding.inflate(layoutInflater)
@@ -16,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         bindings.textInfo.text = START_MESSAGE
         bindings.textInfo.setTextColor(Color.GREEN)
         bindings.buttonMinus.isEnabled = false
+        bindings.seekBar.max = 10
 
         fun setBussInfo(count: Int) {
             bindings.counter.text = "$count"
@@ -41,11 +45,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         bindings.buttonMinus.setOnClickListener {
-            setBussInfo(--count)
+            count -= bindings.seekBar.progress
+            setBussInfo(count)
         }
 
         bindings.buttonPlus.setOnClickListener {
-            setBussInfo(++count)
+            count += bindings.seekBar.progress
+            setBussInfo(count)
         }
 
         bindings.reset.setOnClickListener {
@@ -57,6 +63,9 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val ZERO = 0
         var count = ZERO
+            set(value) {
+                field = if (value < 0) 0 else value
+            }
         val free: String
             get() = "Мест осталось ${FULL - count}"
         const val FULL = 50

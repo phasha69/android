@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Теорема Пифагора</string>
+    <string name="title">Вычислить "c"</string>
+    <string name="result_info">Результат:\ </string>
+    <string name="edA">Ввести \"a\":</string>
+    <string name="edB">Ввести \"b\":</string>
+    <string name="result">Расчитать</string>
+</resources>
